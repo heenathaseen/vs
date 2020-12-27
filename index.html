@@ -13,7 +13,7 @@
                     <p>roof cool coat</p>
                 </div>
                 <div>
-                    <img src="sai" alt="">
+                    <p>img</p>
                 </div>
                 <div>
                    <div>
@@ -38,7 +38,32 @@
             </div>
             <hr>
 
+            <div>
+                <input type="text" id="text" placeholder="Text"/>
+                <input type="number" id="fontsize"/>
+                <button id="button">generate pdf</button>
+            </div>
+
         </form>
          
     </body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+    <script>
+        var form = document.getElementById('form')
+
+        form.addEventListener('submit',function(event){
+            event.preventDefault()
+            var text = document.getElementById('text').value
+            var fontsize = document.getElementById('fontsize').value
+
+            var doc = new jsPDF()
+
+            doc.setFontSize(fontsize)
+
+            doc.text(text,20,20)
+
+            doc.save("output.pdf")
+        })
+    </script>
 </html>
