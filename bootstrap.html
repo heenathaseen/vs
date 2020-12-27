@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+</head>
+<body>
+    <div class="row" id="invoice">
+        <div class="col">
+            <p>logo</p>
+            <h6>sai cool solution</h6>
+            <p>roof cool coat</p>
+        </div>
+        <div class="col">
+            <p>img</p>
+        </div>
+        <div class="col" >
+            <div>
+                <p><i>location</i>#142/3,9th karunanidhi st,G.K.M Colony,
+                    <br>Peravallur, Chennai - 600 082.
+                </p>
+            </div> 
+            <div>
+                  
+                <p> <i>mobile</i>90032 65759</p>
+            </div>
+            <div>
+                 <p><i>mail</i>orange1688@gmail.com</p>
+            </div>
+            <div>
+                <p> <i>website</i>www.coolroofcoating.in</p>
+            </div>
+                 <div>GSTIN : 33ADXFS6767J1Z3</div>
+        </div>
+        
+       
+      </div>
+      <button class="btn btn-primary" id="download"> download pdf</button>
+
+    </div>
+    
+</body>
+<script>
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("invoice");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'myfile.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
+</script>
+</html>
