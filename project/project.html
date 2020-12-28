@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id="invoice">
+        <div class="row" >
+          <div class="col">
+              <p>logo</p>
+              <h6>sai cool solution</h6>
+              <p>roof cool coat</p>
+          </div>
+          <div class="col">
+              <p>img</p>
+          </div>
+          <div class="col" >
+              <div>
+                  <p><i>location</i>#142/3,9th karunanidhi st,G.K.M Colony,
+                      <br>Peravallur, Chennai - 600 082.
+                  </p>
+              </div> 
+              <div>
+                <p> <i>mobile</i>90032 65759</p>
+              </div>
+              <div>
+                   <p><i>mail</i>orange1688@gmail.com</p>
+              </div>
+              <div>
+                  <p> <i>website</i>www.coolroofcoating.in</p>
+              </div>
+              <div>GSTIN : 33ADXFS6767J1Z3</div>
+          </div>
+         
+         
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <form action="" id="form">
+                    <label for="">TO</label>
+                    <br>
+                   <input type="text" id="Company Name" placeholder="Company Name"/>
+                   <input type="text" id="Customer Name" placeholder="Customer Name"/>
+                   <input type="text" id="Street" placeholder="Street"/>
+                   <input type="text" id="City" placeholder="City/Town"/>
+                   <input type="text" id="District" placeholder="District-Pincode"/>
+                   <input type="text" id="State" placeholder="State"/>
+                </form>
+            </div>
+            <div class="col">
+                <table>
+                    <tr>
+                        <th>Proforma Invoice No.</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>Customer No.</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>Invoice Date</th>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <th>Delivery Date</th>
+                        <td><input type="date"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div>
+            <h4>Proform Invoice</h4>
+            <p>Thank you  for your order. We charge you the following delivery or service:</p>
+
+        </div>
+        <div>
+            <table id="dataTable">
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>GST</th>
+                    <th>Price</th>
+                    <th>Total</th>
+
+                </tr>
+                <tr><td><input type="checkbox" name="chk"/></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                
+            </table>
+            <br>
+            <INPUT type="button" value="+" onclick="addRow('dataTable')" />
+
+            <INPUT type="button" value="-" onclick="deleteRow('dataTable')" />
+        </div>
+       
+         
+          
+     
+       
+        <button class="btn btn-primary" id="download"> download pdf</button>
+  
+      </div>
+
+    
+</body>
+<SCRIPT language="javascript">
+    function addRow(tableID) {
+
+        var table = document.getElementById(tableID);
+
+        var rowCount = table.rows.length;
+        var row = table.insertRow(rowCount);
+
+        var cell1 = row.insertCell(0);
+        var element1 = document.createElement("input");
+        element1.type = "checkbox";
+        element1.name="chkbox[]";
+        cell1.appendChild(element1);
+
+        var cell2 = row.insertCell(1);
+        var element1 = document.createElement("input");
+        element1.type = "text";
+        element1.name = "txtbox[]";
+        cell2.appendChild(element1);
+
+        var cell3 = row.insertCell(2);
+        var element2 = document.createElement("input");
+        element2.type = "text";
+        element2.name = "txtbox[]";
+        cell3.appendChild(element2);
+
+        var cell4 = row.insertCell(3);
+        var element3 = document.createElement("input");
+        element3.type = "text";
+        element3.name = "txtbox[]";
+        cell4.appendChild(element3);
+
+        var cell5 = row.insertCell(4);
+        var element4 = document.createElement("input");
+        element4.type = "text";
+        element4.name = "txtbox[]";
+        cell5.appendChild(element4);
+
+        var cell6 = row.insertCell(5);
+        var element5 = document.createElement("input");
+        element5.type = "text";
+        element5.name = "txtbox[]";
+        cell6.appendChild(element5);
+
+
+    }
+
+    function deleteRow(tableID) {
+        try {
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+
+        for(var i=0; i<rowCount; i++) {
+            var row = table.rows[i];
+            var chkbox = row.cells[0].childNodes[0];
+            if(null != chkbox && true == chkbox.checked) {
+                table.deleteRow(i);
+                rowCount--;
+                i--;
+            }
+
+
+        }
+        }catch(e) {
+            alert(e);
+        }
+    }
+
+</SCRIPT>
+</html>
